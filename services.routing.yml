@@ -73,6 +73,7 @@ services.csrf_token:
   defaults:
     _controller: '\Drupal\services\Controller\Services::csrfToken'
   requirements:
+    # CSRF session token must be available to everyone.
     _access: 'TRUE'
 
 services.settings:
