@@ -17,6 +17,7 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * @ServiceDefinition(
@@ -31,8 +32,8 @@ use Symfony\Component\Serializer\SerializerInterface;
  * )
  */
 class UserLogin extends ServiceDefinitionBase implements ContainerFactoryPluginInterface {
-
   use MessengerTrait;
+  use StringTranslationTrait;
 
   /**
    * Constructs a HTTP basic authentication provider object.
@@ -125,7 +126,7 @@ class UserLogin extends ServiceDefinitionBase implements ContainerFactoryPluginI
             $this->flood->clear('services.failed_login_user', $identifier);
             $this->session->start();
             user_login_finalize($account);
-            $this->messenger()->addMessage(t('User successfully logged in'), 'status', FALSE);
+            $this->messenger()->addMessage($this->t('User successfully logged in'), 'status', FALSE);
 
             return [
               'id' => $this->session->getId(),

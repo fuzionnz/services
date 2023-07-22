@@ -8,6 +8,7 @@ use Drupal\services\ServiceDefinitionBase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Serializer\SerializerInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * @ServiceDefinition(
@@ -22,7 +23,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  * )
  */
 class UserLogout extends ServiceDefinitionBase {
-
+  use StringTranslationTrait;
   use MessengerTrait;
 
   /**
@@ -37,7 +38,7 @@ class UserLogout extends ServiceDefinitionBase {
    */
   public function processRequest(Request $request, RouteMatchInterface $route_match, SerializerInterface $serializer) {
     user_logout();
-    $this->messenger()->addMessage(t('User successfully logged out'), 'status', FALSE);
+    $this->messenger()->addMessage($this->t('User successfully logged out'), 'status', FALSE);
 
     return [];
   }
