@@ -86,7 +86,7 @@ class ServiceResource extends ConfigEntityBase implements ServiceResourceInterfa
    * {@inheritdoc}
    */
   public function id() {
-    return $this->service_endpoint_id . '.' . strtr($this->service_plugin_id, ':', '.');
+    return $this->service_endpoint_id . '.' . strtr($this->service_plugin_id ?? '', ':', '.');
   }
 
   /**
