@@ -2,14 +2,16 @@
 
 namespace Drupal\services;
 
-use Drupal\Core\Plugin\ContextAwarePluginBase;
+use Drupal\Core\Plugin\ContextAwarePluginTrait;
+use Drupal\Core\Plugin\PluginBase;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Route;
 
 /**
  * Class \Drupal\services\ServiceDefinitionBase.
  */
-abstract class ServiceDefinitionBase extends ContextAwarePluginBase implements ServiceDefinitionInterface {
+abstract class ServiceDefinitionBase extends PluginBase implements ServiceDefinitionInterface {
+  use ContextAwarePluginTrait;
 
   /**
    * {@inheritdoc}
