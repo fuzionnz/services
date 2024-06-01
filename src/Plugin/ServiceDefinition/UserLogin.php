@@ -85,7 +85,7 @@ class UserLogin extends ServiceDefinitionBase implements ContainerFactoryPluginI
    */
   public function processRequest(Request $request, RouteMatchInterface $route_match, SerializerInterface $serializer) {
     if ($serializer instanceof DecoderInterface) {
-      $content = $serializer->decode($request->getContent(), $request->getContentType());
+      $content = $serializer->decode($request->getContent(), $request->getContentTypeFormat());
     }
     else {
       throw new HttpException(500, 'The appropriate DecoderInterface was not found.');

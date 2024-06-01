@@ -50,7 +50,7 @@ class ServiceDefinitionEntityRequestContentBase extends ServiceDefinitionBase im
       /** @var \Drupal\Core\Entity\EntityTypeInterface $entity_type */
       $entity_type = $this->manager->getDefinition($entity_type_id);
 
-      return $serializer->deserialize($content, $entity_type->getClass(), $request->getContentType(), ['entity_type' => $entity_type_id]);
+      return $serializer->deserialize($content, $entity_type->getClass(), $request->getContentTypeFormat(), ['entity_type' => $entity_type_id]);
     }
 
     return [];
