@@ -36,6 +36,41 @@ class UserLogin extends ServiceDefinitionBase implements ContainerFactoryPluginI
   use StringTranslationTrait;
 
   /**
+   * Config Factory Service Object.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * The user auth service.
+   *
+   * @var \Drupal\user\UserAuthInterface
+   */
+  protected $userAuth;
+
+  /**
+   * The flood service.
+   *
+   * @var \Drupal\Core\Flood\FloodInterface
+   */
+  protected $flood;
+
+  /**
+   * Entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
+  protected $entityManager;
+
+  /**
+   * The session.
+   *
+   * @var \Symfony\Component\HttpFoundation\Session\Session
+   */
+  protected $session;
+
+  /**
    * Constructs a HTTP basic authentication provider object.
    *
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory

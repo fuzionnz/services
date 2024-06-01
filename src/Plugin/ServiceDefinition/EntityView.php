@@ -7,10 +7,10 @@ use Drupal\Core\Asset\AssetResolverInterface;
 use Drupal\Core\Asset\AttachedAssets;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Render\RendererInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\services\ServiceDefinitionBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -27,9 +27,32 @@ use Symfony\Component\Serializer\SerializerInterface;
 class EntityView extends ServiceDefinitionBase implements ContainerFactoryPluginInterface {
 
   /**
+   * The renderer.
+   *
    * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
+
+  /**
+   * The asset resolver service.
+   *
+   * @var \Drupal\Core\Asset\AssetResolverInterface
+   */
+  protected $assetResolver;
+
+  /**
+   * The CSS asset collection renderer service.
+   *
+   * @var \Drupal\Core\Asset\AssetCollectionRendererInterface
+   */
+  protected $cssCollectionRenderer;
+
+  /**
+   * The JS asset collection renderer service.
+   *
+   * @var \Drupal\Core\Asset\AssetCollectionRendererInterface
+   */
+  protected $jsCollectionRenderer;
 
   /**
    * {@inheritdoc}
@@ -39,10 +62,22 @@ class EntityView extends ServiceDefinitionBase implements ContainerFactoryPlugin
   }
 
   /**
+   * Constructs a EntityView object.
+   *
    * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
    * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
    * @param mixed $plugin_definition
+   *   The plugin implementation definition.
    * @param \Drupal\Core\Render\RendererInterface $renderer
+   *   The renderer.
+   * @param \Drupal\Core\Asset\AssetResolverInterface $asset_resolver
+   *   An asset resolver.
+   * @param \Drupal\Core\Asset\AssetCollectionRendererInterface $css_collection_renderer
+   *   The CSS asset collection renderer.
+   * @param \Drupal\Core\Asset\AssetCollectionRendererInterface $js_collection_renderer
+   *   The JS asset collection renderer.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, RendererInterface $renderer, AssetResolverInterface $asset_resolver, AssetCollectionRendererInterface $css_collection_renderer, AssetCollectionRendererInterface $js_collection_renderer) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
@@ -117,7 +152,7 @@ class EntityView extends ServiceDefinitionBase implements ContainerFactoryPlugin
     // Render the asset collections.
     $css_assets = $this->assetResolver->getCssAssets($assets, FALSE);
     $variables['styles'] = $this->cssCollectionRenderer->render($css_assets);
-    list($js_assets_header, $js_assets_footer) = $this->assetResolver->getJsAssets($assets, FALSE);
+    [$js_assets_header, $js_assets_footer] = $this->assetResolver->getJsAssets($assets, FALSE);
     $variables['scripts'] = $this->jsCollectionRenderer->render($js_assets_header);
     $variables['scripts_bottom'] = $this->jsCollectionRenderer->render($js_assets_footer);
     // @todo Handle all non-asset attachments.
