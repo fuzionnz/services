@@ -65,7 +65,7 @@ class EntityIndex extends ServiceDefinitionBase implements ContainerFactoryPlugi
     if ($request->query->has('limit') && is_numeric($request->query->get('limit'))) {
       $limit = $request->query->get('limit');
     }
-    $result = $this->entityTypeManager->getStorage($entity_type_id)->getQuery()
+    $result = $this->entityTypeManager->getStorage($entity_type_id)->accessCheck(FALSE)->getQuery()
       ->range($start, $limit)
       // Limit to entities the user may access.
       ->accessCheck(TRUE)
