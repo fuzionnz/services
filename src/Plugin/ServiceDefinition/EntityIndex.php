@@ -67,6 +67,8 @@ class EntityIndex extends ServiceDefinitionBase implements ContainerFactoryPlugi
     }
     $result = $this->entityTypeManager->getStorage($entity_type_id)->getQuery()
       ->range($start, $limit)
+      // Limit to entities the user may access.
+      ->accessCheck(TRUE)
       ->execute();
 
     $map_function = function ($id) use ($entity_type_id) {
