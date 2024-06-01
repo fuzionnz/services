@@ -21,7 +21,7 @@ class EntityView extends EntityDeriverBase {
         $this->derivatives[$entity_type_id]['description'] = $this->t('Renders a @entity_type_id object and serializes it as a response to the current request.', ['@entity_type_id' => $entity_type_id]);
         $this->derivatives[$entity_type_id]['category'] = $this->t('@label', ['@label' => $entity_type->getLabel()]);
         $this->derivatives[$entity_type_id]['path'] = "$entity_type_id/{{$entity_type_id}}/view";
-        $this->derivatives[$entity_type_id]['context'] = [
+        $this->derivatives[$entity_type_id]['context_definitions'] = [
           "$entity_type_id" => new EntityContextDefinition("entity:$entity_type_id", $this->t('@label', ['@label' => $entity_type->getLabel()])),
         ];
         // Added as a warning that this EntityView is expirimental.
