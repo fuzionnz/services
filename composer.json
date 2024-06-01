@@ -3,7 +3,6 @@
     "description": "A standardized solution of integrating external applications with Drupal.",
     "type": "drupal-module",
     "license": "GPL-2.0+",
-    "minimum-stability": "stable",
     "homepage": "https://www.drupal.org/project/services",
     "authors": [
         {
