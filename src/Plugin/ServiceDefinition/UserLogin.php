@@ -8,6 +8,7 @@ use Drupal\Core\Flood\FloodInterface;
 use Drupal\Core\Messenger\MessengerTrait;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\services\ServiceDefinitionBase;
 use Drupal\user\UserAuthInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -17,7 +18,6 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 use Symfony\Component\Serializer\SerializerInterface;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * @ServiceDefinition(

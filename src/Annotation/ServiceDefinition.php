@@ -21,18 +21,18 @@ class ServiceDefinition extends Plugin {
   /**
    * The human-readable name of the service definition.
    *
-   * @ingroup plugin_translatable
-   *
    * @var \Drupal\Core\Annotation\Translation
+   *
+   * @ingroup plugin_translatable
    */
   public $title;
 
   /**
    * The human-readable name of the service category.
    *
-   * @ingroup plugin_translatable
-   *
    * @var \Drupal\Core\Annotation\Translation
+   *
+   * @ingroup plugin_translatable
    */
   public $category;
 
@@ -53,9 +53,9 @@ class ServiceDefinition extends Plugin {
   /**
    * The description shown to users.
    *
-   * @ingroup plugin_translatable
-   *
    * @var \Drupal\Core\Annotation\Translation
+   *
+   * @ingroup plugin_translatable
    */
   public $description;
 

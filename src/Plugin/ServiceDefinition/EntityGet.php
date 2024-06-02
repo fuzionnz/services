@@ -5,8 +5,8 @@ namespace Drupal\services\Plugin\ServiceDefinition;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\services\ServiceDefinitionBase;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @ServiceDefinition(

@@ -18,6 +18,3 @@ services.resources:
   route_name: entity.service_endpoint.resources
   base_route: entity.service_endpoint.edit_form
   weight: 1
-
-
-

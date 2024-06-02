@@ -7,8 +7,8 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\services\ServiceDefinitionEntityRequestContentBase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @ServiceDefinition(

@@ -4,11 +4,11 @@ namespace Drupal\services\Plugin\ServiceDefinition;
 
 use Drupal\Core\Messenger\MessengerTrait;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\services\ServiceDefinitionBase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * @ServiceDefinition(

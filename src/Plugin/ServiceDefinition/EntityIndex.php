@@ -4,11 +4,11 @@ namespace Drupal\services\Plugin\ServiceDefinition;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\services\ServiceDefinitionBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @ServiceDefinition(

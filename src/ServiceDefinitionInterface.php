@@ -7,8 +7,8 @@ use Drupal\Core\Plugin\ContextAwarePluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Route;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Interface \Drupal\services\ServiceDefinitionInterface.
