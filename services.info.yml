@@ -1,7 +1,7 @@
 name: Services
 type: module
 description: A standardized solution of integrating external applications with Drupal.
-core_version_requirement: ^10
+core_version_requirement: ^10 || ^11
 configure: entity.service_endpoint.collection
 package: Services
 dependencies:
