@@ -34,6 +34,7 @@ class EntityDelete extends ServiceDefinitionBase {
     /** @var \Drupal\Core\Entity\EntityInterface $entity */
     $entity = $this->getContextValue($this->getDerivativeId());
     $entity->delete();
+    return [];
   }
 
 }

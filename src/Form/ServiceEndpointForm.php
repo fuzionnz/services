@@ -94,6 +94,7 @@ class ServiceEndpointForm extends EntityForm {
       ]));
     }
     $form_state->setRedirectUrl($service_endpoint->toUrl('collection'));
+    return $status;
   }
 
 }

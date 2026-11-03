@@ -57,6 +57,7 @@ class ServiceResourceConfigForm extends ServiceResourceBaseForm {
     }
 
     $form_state->setRedirectUrl($this->entity->getEndpoint()->toUrl('resources'));
+    return $status;
   }
 
 }
